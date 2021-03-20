@@ -29,16 +29,28 @@ class Stack:
                 node = self.node
                 self.node = node.head
                 self.size -= 1
-                print(self.size)
                 return node
             else:
                 self.node = None
                 return None
 
 
-a, b, c, d = Node('a'), Node('b'), Node('c'), Node('d')
-stack = Stack()
-stack.add(a)
-stack.add(b)
-stack.add(c)
-stack.add(d)
+def test_stack():
+    print('Testing Stack Function ...')
+    a, b, c, d = Node('a'), Node('b'), Node('c'), Node('d')
+    stack = Stack()
+    stack.add(a)
+    stack.add(b)
+    stack.add(c)
+    stack.add(d)
+    try:
+        assert stack.node.value == 'd'
+        assert stack.pop().value == 'd'
+        assert stack.pop().value == 'c'
+        print('Test pass!')
+    except Exception as e:
+        print('Test failed')
+        print(e)
+
+
+test_stack()
